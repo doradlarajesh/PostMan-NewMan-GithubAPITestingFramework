@@ -1,0 +1,9 @@
+{
+	"info": {
+		"_postman_id": "93dc4f4d-c24d-4f6d-9666-60cd0df8453b",
+		"name": "GitHub APIs",
+		"description": "Play and Test Github APIs with Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": []
+}
