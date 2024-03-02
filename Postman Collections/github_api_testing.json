@@ -27,7 +27,8 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/vnd.github+json"
+								"value": "application/vnd.github+json",
+								"disabled": true
 							},
 							{
 								"key": "Authorization",
