@@ -8,8 +8,61 @@
 	"item": [
 		{
 			"name": "Repositories",
-			"item": [],
+			"item": [
+				{
+					"name": "Get User Repos",
+					"id": "b3449bad-be7d-43c6-9475-8b3bff1ea7eb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.github+json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <YOUR-TOKEN>"
+							},
+							{
+								"key": "X-GitHub-Api-Version",
+								"value": "2022-11-28"
+							}
+						],
+						"url": {
+							"raw": "https://api.github.com/users/:USERNAME/repos",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"users",
+								":USERNAME",
+								"repos"
+							],
+							"variable": [
+								{
+									"id": "bd093ba7-5437-432e-9521-881d4fec43e2",
+									"key": "USERNAME",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "0de3309b-33dd-4499-bb9b-65155b383f59"
+		}
+	],
+	"variable": [
+		{
+			"key": "GitUserName",
+			"value": "username"
 		}
 	]
 }
