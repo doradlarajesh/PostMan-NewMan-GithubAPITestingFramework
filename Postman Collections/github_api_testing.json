@@ -16,6 +16,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{usertoken}}"
+							}
+						},
 						"method": "GET",
 						"header": [
 							{
@@ -24,7 +30,8 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "{{usertoken}}"
+								"value": "",
+								"disabled": true
 							},
 							{
 								"key": "X-GitHub-Api-Version",
@@ -58,11 +65,17 @@
 			"id": "0de3309b-33dd-4499-bb9b-65155b383f59"
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "Bearer {{usertoken}}"
+		}
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1171cfbb-2fb0-4017-98c1-9ab09dbd3bd8",
+				"id": "ce1cd3c1-ad0a-4e3f-8b92-bb3e502a4217",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -72,7 +85,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "92683de4-416d-4126-9a26-6a0854d68b5d",
+				"id": "92a8025a-85e9-4c1c-a0f0-287659680899",
 				"type": "text/javascript",
 				"exec": [
 					""
