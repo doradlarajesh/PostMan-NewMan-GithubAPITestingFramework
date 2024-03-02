@@ -13,13 +13,14 @@
 					"name": "Get User Repos",
 					"id": "b3449bad-be7d-43c6-9475-8b3bff1ea7eb",
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {}
 					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{usertoken}}"
+								"token": "{{token}}"
 							}
 						},
 						"method": "GET",
@@ -38,26 +39,7 @@
 								"value": "2022-11-28"
 							}
 						],
-						"url": {
-							"raw": "https://api.github.com/users/:USERNAME/repos",
-							"protocol": "https",
-							"host": [
-								"api",
-								"github",
-								"com"
-							],
-							"path": [
-								"users",
-								":USERNAME",
-								"repos"
-							],
-							"variable": [
-								{
-									"key": "USERNAME",
-									"value": "{{GitUserName}}"
-								}
-							]
-						}
+						"url": "https://api.github.com/users/doradlarajesh/repos"
 					},
 					"response": []
 				}
