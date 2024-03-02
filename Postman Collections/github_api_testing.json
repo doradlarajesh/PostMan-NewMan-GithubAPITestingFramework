@@ -42,7 +42,7 @@
 									"});\r",
 									"\r",
 									"pm.test(\"No cookies should be present\",function(){\r",
-									"\r",
+									"    pm.expect(pm.response.cookies.count).equals(0);\r",
 									"});\r",
 									"\r",
 									"\r",
