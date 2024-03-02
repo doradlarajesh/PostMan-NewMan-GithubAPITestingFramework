@@ -860,7 +860,7 @@
 									"\r",
 									"pm.test('Schema is valid', function () {\r",
 									"//Using tiny Validator for schema comparison\r",
-									"console.log(\"Response as JSON\" + pm.response.json())\r",
+									"console.log(\"Response as JSON\" + JSON.stringify(pm.response.body))\r",
 									"pm.expect(tv4.validate(pm.response.toJSON, schema)).to.be.true;\r",
 									"\r",
 									"//using nom AJV schema validator\r",
