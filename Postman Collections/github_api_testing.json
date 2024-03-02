@@ -11,6 +11,32 @@
 			"item": [
 				{
 					"name": "Get User Repos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "81cd4bd9-eebd-4d83-a684-634c23c28a7f",
+								"exec": [
+									"//Postman uses Chai Assertion library BDD style for readable tests\r",
+									"//pm is a javascript postman objectwhich provides access to request, response data and variables\r",
+									"\r",
+									"\r",
+									"//Test 1: Validate whether status of this api is 200\r",
+									"pm.test(\"Status code is 200\",function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//Test2: Validating some header content\r",
+									"\r",
+									"pm.test(\"Header information is as expected\", function(){\r",
+									"    pm.expect(pm.response.headers)\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "b3449bad-be7d-43c6-9475-8b3bff1ea7eb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true,
