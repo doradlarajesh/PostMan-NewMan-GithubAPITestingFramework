@@ -27,13 +27,7 @@
 						"header": [
 							{
 								"key": "Accept",
-								"value": "application/vnd.github+json",
-								"disabled": true
-							},
-							{
-								"key": "Authorization",
-								"value": "",
-								"disabled": true
+								"value": "application/vnd.github+json"
 							},
 							{
 								"key": "X-GitHub-Api-Version",
@@ -58,7 +52,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8b8eda4d-92d0-4234-bfbf-b98be922bec6",
+				"id": "b7bb18c4-44e9-4a5c-b27f-1a99199d07bd",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -68,7 +62,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e9c4ba10-3b9d-4a19-9e18-fbd9203c98a9",
+				"id": "49cd258a-9746-4b6d-a40a-544c9cda554a",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -83,7 +77,7 @@
 		},
 		{
 			"key": "usertoken",
-			"value": "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"
+			"value": ""
 		}
 	]
 }
