@@ -859,6 +859,11 @@
 									"\r",
 									"\r",
 									"pm.test('Schema is valid', function () {\r",
+									"//Using tiny Validator for schema comparison\r",
+									"\r",
+									"pm.expect(tv4.validate(pm.response.body.toJSON, schema)).to.be.true;\r",
+									"\r",
+									"//using nom AJV schema validator\r",
 									"  pm.response.to.have.jsonSchema(schema)\r",
 									"});\r",
 									""
