@@ -20,7 +20,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{token}}"
+								"token": "{{usertoken}}"
 							}
 						},
 						"method": "GET",
@@ -52,7 +52,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b7bb18c4-44e9-4a5c-b27f-1a99199d07bd",
+				"id": "452c556c-1065-45af-bd34-1d153d1e4ca4",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -62,7 +62,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "49cd258a-9746-4b6d-a40a-544c9cda554a",
+				"id": "34ca5dc1-0a21-4aff-8ef5-34d32e42f840",
 				"type": "text/javascript",
 				"exec": [
 					""
