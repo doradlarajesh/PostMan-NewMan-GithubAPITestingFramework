@@ -856,6 +856,12 @@
 									"    ]\r",
 									"  }\r",
 									"};\r",
+									"\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"  //  pm.expect(tv4.validate(pm.response.body,schema)).to.be.true;\r",
+									"  pm.response.to.have.jsonSchema(schema)\r",
+									"});\r",
 									""
 								],
 								"type": "text/javascript"
