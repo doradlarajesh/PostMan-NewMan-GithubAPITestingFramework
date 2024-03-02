@@ -68,14 +68,14 @@
 	"auth": {
 		"type": "bearer",
 		"bearer": {
-			"token": "Bearer {{usertoken}}"
+			"token": "{{usertoken}}"
 		}
 	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ce1cd3c1-ad0a-4e3f-8b92-bb3e502a4217",
+				"id": "8b8eda4d-92d0-4234-bfbf-b98be922bec6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -85,7 +85,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "92a8025a-85e9-4c1c-a0f0-287659680899",
+				"id": "e9c4ba10-3b9d-4a19-9e18-fbd9203c98a9",
 				"type": "text/javascript",
 				"exec": [
 					""
