@@ -5,5 +5,11 @@
 		"description": "Play and Test Github APIs with Postman",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
-	"item": []
+	"item": [
+		{
+			"name": "Repositories",
+			"item": [],
+			"id": "0de3309b-33dd-4499-bb9b-65155b383f59"
+		}
+	]
 }
