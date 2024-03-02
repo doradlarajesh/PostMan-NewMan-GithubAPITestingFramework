@@ -28,8 +28,9 @@
 									"\r",
 									"//Test2: Validating some header content\r",
 									"\r",
-									"pm.test(\"Header information is as expected\", function(){\r",
-									"    pm.expect(pm.response.headers)\r",
+									"pm.test(\" Server Header information is as expected\", function(){\r",
+									"    pm.response.to.have.header(\"Server\")\r",
+									"    pm.expect(pm.response.headers.get(\"Server\")).to.equal(\"GitHub.com\")\r",
 									"\r",
 									"});"
 								],
