@@ -24,7 +24,7 @@
 							},
 							{
 								"key": "Authorization",
-								"value": "Bearer <YOUR-TOKEN>"
+								"value": "{{usertoken}}"
 							},
 							{
 								"key": "X-GitHub-Api-Version",
@@ -46,9 +46,8 @@
 							],
 							"variable": [
 								{
-									"id": "bd093ba7-5437-432e-9521-881d4fec43e2",
 									"key": "USERNAME",
-									"value": ""
+									"value": "{{GitUserName}}"
 								}
 							]
 						}
@@ -59,10 +58,36 @@
 			"id": "0de3309b-33dd-4499-bb9b-65155b383f59"
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1171cfbb-2fb0-4017-98c1-9ab09dbd3bd8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "92683de4-416d-4126-9a26-6a0854d68b5d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "GitUserName",
-			"value": "username"
+			"value": "doradlarajesh"
+		},
+		{
+			"key": "usertoken",
+			"value": "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"
 		}
 	]
 }
