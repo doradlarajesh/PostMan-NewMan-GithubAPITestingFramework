@@ -49,8 +49,10 @@
 									"});\r",
 									"\r",
 									"//Test5: Get all public repo names and store in collection variable\r",
-									"\r",
-									"\r",
+									"pm.collectionVariables.set(\"variable_key\", \"variable_value\");\r",
+									"pm.collectionVariables.set(\"publicRepos\")\r",
+									"let nuumberOfPublicRepos = pm.response.body\r",
+									"console.log(\"nuumberOfPublicRepos\" + nuumberOfPublicRepos)\r",
 									"\r",
 									"\r",
 									"//Test6 : Response Schema validation\r",
@@ -941,6 +943,14 @@
 		},
 		{
 			"key": "usertoken",
+			"value": ""
+		},
+		{
+			"key": "variable_key",
+			"value": ""
+		},
+		{
+			"key": "publicRepos",
 			"value": ""
 		}
 	]
