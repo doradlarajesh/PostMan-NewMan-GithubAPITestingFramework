@@ -48,7 +48,7 @@
 									"    pm.expect(pm.response.cookies.count()).to.eql(0)\r",
 									"});\r",
 									"\r",
-									"//Test5: Get all public repo names in variable\r",
+									"//Test5: Get all public repo names and store in collection variable\r",
 									"\r",
 									"\r",
 									"\r",
