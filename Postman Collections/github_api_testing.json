@@ -648,7 +648,57 @@
 				},
 				{
 					"name": "NEGATIVE",
-					"item": [],
+					"item": [
+						{
+							"name": "Delete a Repo(Token No rights)",
+							"id": "f39816f3-343a-4473-ab3b-d5f433d170ac",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.github+json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <YOUR-TOKEN>"
+									},
+									{
+										"key": "X-GitHub-Api-Version",
+										"value": "2022-11-28"
+									}
+								],
+								"url": {
+									"raw": "https://api.github.com/repos/:user/:repo",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										":user",
+										":repo"
+									],
+									"variable": [
+										{
+											"key": "user",
+											"value": ""
+										},
+										{
+											"key": "repo",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
 					"id": "264ad2ed-c1f4-4b23-b3cf-0b7a609ad298"
 				}
 			],
