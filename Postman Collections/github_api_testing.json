@@ -22,26 +22,28 @@
 									"//Postman uses Chai Assertion library BDD style for readable tests\r",
 									"//pm is a javascript postman objectwhich provides access to request, response data and variables\r",
 									"\r",
-									"//User collection variable is set at collection level pre-request script\r",
+									"//User collection variable is set at collection level pre-request script as it may be used in multiple requests. And folder level prerequest script is run before executing individual request.\r",
 									"\r",
 									"//Test 1: Validate whether status of this api is 200\r",
 									"pm.test(\"Status code is 200\",function(){\r",
 									"    pm.response.to.have.status(200);\r",
+									"    pm.response.to.have.status(\"OK\");\r",
 									"});\r",
 									"\r",
 									"//Test2: Validating some header content\r",
 									"\r",
-									"pm.test(\" Server Header information is as expected\", function(){\r",
+									"pm.test(\" Response Header information is as expected\", function(){\r",
 									"    pm.response.to.have.header(\"Server\")\r",
 									"    pm.expect(pm.response.headers.get(\"Server\")).to.equal(\"GitHub.com\")\r",
 									"\r",
+									"    pm.response.to.have.header(\"Content-Type\")\r",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.equal(\"application/json; charset=utf-8\")\r",
+									"\r",
 									"});\r",
 									"\r",
-									"//Test3: Validating some header content\r",
-									"pm.test(\"Content-Type header information is as expected\",function(){\r",
-									"   pm.response.to.have.header(\"Content-Type\")\r",
+									"//Test3: Validating some header content is not present\r",
+									"pm.test(\"Transfer-Encoding1234 shouldnt present in response Headers\",function(){\r",
 									"\r",
-									"   pm.expect(pm.response.headers.get(\"Content-Type\")).to.contains(\"application/json\")\r",
 									"\r",
 									"});\r",
 									"\r",
@@ -886,7 +888,7 @@
 							"script": {
 								"id": "04f2ab08-078b-4b10-9699-914022736a9f",
 								"exec": [
-									"pm.collectionVariables.set(\"user\",\"doradlarajesh\")"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -933,17 +935,17 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "67fbb9f8-344d-4cdf-aa2f-8d38577c92ea",
+				"id": "ea3b60ca-7a91-4536-a02a-aa0703b56177",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.collectionVariables.set(\"user\",\"doradlarajesh\")"
 				]
 			}
 		},
 		{
 			"listen": "test",
 			"script": {
-				"id": "8666bb69-079f-434d-8baf-e7e4096ecb54",
+				"id": "f614cb53-884c-4e92-bdf7-660b4c20a90a",
 				"type": "text/javascript",
 				"exec": [
 					""
