@@ -568,6 +568,10 @@
 									"const jsonCreateRepoResponse = createRepoResponse.json();\r",
 									"const createRepoRequest = pm.request;\r",
 									"\r",
+									"//To delete the repo again afterwards re-saving this repo name into same variable as we created in pre-request script. As that has random function previously we get a different one if use same without below code\r",
+									"pm.collectionVariables.set(\"newRepoName\",JSON.parse(pm.request.body.raw).name)\r",
+									"console.log(\"In tests: \"+ pm.collectionVariables.get(\"newRepoName\"))\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript"
