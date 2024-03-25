@@ -29,8 +29,8 @@
 									"\r",
 									"//Test 1: Validate whether status of this api is 200\r",
 									"pm.test(\"Status code is 200\",function(){\r",
-									"   reposResponse.to.have.status(200);\r",
-									"   reposResponse.to.have.status(\"OK\");\r",
+									"   reposResponse.to.have.status(200)\r",
+									"   reposResponse.to.have.status(\"OK\")\r",
 									"});\r",
 									"\r",
 									"//Test2: Validating some header content\r",
@@ -511,8 +511,7 @@
 									"\r",
 									"pm.test(\"HTML URL is valid and follows rule\",function(){\r",
 									"    pm.expect(jsonReposResponse.every(followsURLRule)).to.be.true\r",
-									"})\r",
-									"}"
+									"});"
 								],
 								"type": "text/javascript"
 							}
