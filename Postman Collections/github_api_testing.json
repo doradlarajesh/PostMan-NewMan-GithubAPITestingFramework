@@ -22,6 +22,7 @@
 									"//Postman uses Chai Assertion library BDD style for readable tests\r",
 									"//pm is a javascript postman objectwhich provides access to request, response data and variables\r",
 									"\r",
+									"//User collection variable is set at collection level pre-request script\r",
 									"\r",
 									"//Test 1: Validate whether status of this api is 200\r",
 									"pm.test(\"Status code is 200\",function(){\r",
@@ -876,6 +877,16 @@
 									"  pm.response.to.have.jsonSchema(schema)\r",
 									"});\r",
 									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "04f2ab08-078b-4b10-9699-914022736a9f",
+								"exec": [
+									"pm.collectionVariables.set(\"user\",\"doradlarajesh\")"
 								],
 								"type": "text/javascript"
 							}
