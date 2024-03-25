@@ -651,11 +651,45 @@
 					"item": [
 						{
 							"name": "Delete a Repo(Token No rights)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8ab4d352-d710-4e6a-a97c-b7fab6ba9366",
+										"exec": [
+											"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#delete-a-repository */\r",
+											"\r",
+											"pm.test(\"Repo Deletion should Fail\",function(){\r",
+											"    pm.response.to.have.status(403);\r",
+											"    pm.response.to.have.status(\"Forbidden\")\r",
+											"})\r",
+											"\r",
+											"const expectedResponse = {\r",
+											"    \"message\": \"Must have admin rights to Repository.\",\r",
+											"    \"documentation_url\": \"https://docs.github.com/rest/repos/repos#delete-a-repository\"\r",
+											"}\r",
+											"\r",
+											"//Test 02 - Compare expected and actual json Response\r",
+											"\r",
+											"pm.test(\"JSON Reponse Comparision\",function(){\r",
+											"\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "f39816f3-343a-4473-ab3b-d5f433d170ac",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{usertoken}}"
+									}
+								},
 								"method": "DELETE",
 								"header": [
 									{
@@ -687,11 +721,11 @@
 									"variable": [
 										{
 											"key": "user",
-											"value": ""
+											"value": "{{user}}"
 										},
 										{
 											"key": "repo",
-											"value": ""
+											"value": "{{newRepoName}}"
 										}
 									]
 								}
