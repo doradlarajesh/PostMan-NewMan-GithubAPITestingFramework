@@ -575,9 +575,14 @@
 									"pm.test(\"Repo created successfully\", function(){\r",
 									"    createRepoResponse.to.have.status(201)\r",
 									"    createRepoResponse.to.have.status(\"Created\")\r",
-									"}\r",
+									"});\r",
 									"\r",
-									""
+									"pm.test(\"Validate Request and Response Repo name is same\",function(){\r",
+									"    console.log(jsonCreateRepoResponse.name)\r",
+									"    if(pm.collectionVariables.get(\"newRepoName\")!= jsonCreateRepoResponse.name ){\r",
+									"        pm.expect.fail;\r",
+									"    }\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -601,6 +606,12 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{usertoken}}"
+							}
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -617,14 +628,13 @@
 							}
 						],
 						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"type": "text",
-									"key": "{\"name\":\"Hello-World\",\"description\":\"This is your first repo!\",\"homepage\":\"https://github.com\",\"private\":false,\"is_template\":true}",
-									"value": ""
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{newRepoName}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"private\": false,\r\n    \"is_template\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": "https://api.github.com/user/repos"
 					},
