@@ -564,7 +564,24 @@
 								"exec": [
 									"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user */\r",
 									"\r",
+									"const createRepoResponse = pm.response;\r",
+									"const jsonCreateRepoResponse = createRepoResponse.json();\r",
+									"const createRepoRequest = pm.request;\r",
+									"\r",
 									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "5a947ef4-ff8b-4993-9ece-55eac7ccb91f",
+								"exec": [
+									"//Javascript Faker library can be used to generate Fake Data\r",
+									"//Generate Fake Repo name\r",
+									"\r",
+									"pm.collectionVariables.set(\"newRepoName\",\"{{$randomLoremWord}}\")"
 								],
 								"type": "text/javascript"
 							}
@@ -656,6 +673,10 @@
 		{
 			"key": "user",
 			"value": "doradlarajesh"
+		},
+		{
+			"key": "newRepoName",
+			"value": ""
 		}
 	]
 }
