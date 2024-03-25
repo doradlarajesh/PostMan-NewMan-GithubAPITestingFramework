@@ -553,6 +553,56 @@
 						"url": "https://api.github.com/users/{{user}}/repos"
 					},
 					"response": []
+				},
+				{
+					"name": "Create a public Repo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dbb85a64-6289-462f-b63a-815721ce7282",
+								"exec": [
+									"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user */\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7f25ae90-6bed-4608-a448-f93ccc454f6d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.github+json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <YOUR-TOKEN>"
+							},
+							{
+								"key": "X-GitHub-Api-Version",
+								"value": "2022-11-28"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"type": "text",
+									"key": "{\"name\":\"Hello-World\",\"description\":\"This is your first repo!\",\"homepage\":\"https://github.com\",\"private\":false,\"is_template\":true}",
+									"value": ""
+								}
+							]
+						},
+						"url": "https://api.github.com/user/repos"
+					},
+					"response": []
 				}
 			],
 			"id": "0de3309b-33dd-4499-bb9b-65155b383f59"
