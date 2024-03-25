@@ -572,6 +572,11 @@
 									"pm.collectionVariables.set(\"newRepoName\",JSON.parse(pm.request.body.raw).name)\r",
 									"console.log(\"In tests: \"+ pm.collectionVariables.get(\"newRepoName\"))\r",
 									"\r",
+									"pm.test(\"Repo created successfully\", function(){\r",
+									"    createRepoResponse.to.have.status(201)\r",
+									"    createRepoResponse.to.have.status(\"Created\")\r",
+									"}\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript"
