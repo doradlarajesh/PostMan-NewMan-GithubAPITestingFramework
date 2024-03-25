@@ -505,12 +505,14 @@
 									"\r",
 									"\r",
 									"//Test 7 -- Validate evey repo's html_url contains \"https://github.com/{{username}}/{{reponame}}\r",
-									"\r",
+									"function followsURLRule(eachRepo){\r",
+									"    return eachRepo.html_url ==  \"https://github.com/\" + pm.collectionVariables.get(\"user\") + \"/\" + eachRepo.name \r",
+									"}\r",
 									"\r",
 									"pm.test(\"HTML URL is valid and follows rule\",function(){\r",
 									"    pm.expect(jsonReposResponse.every(followsURLRule)).to.be.true\r",
 									"})\r",
-									""
+									"}"
 								],
 								"type": "text/javascript"
 							}
