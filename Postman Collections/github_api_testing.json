@@ -17,6 +17,8 @@
 							"script": {
 								"id": "81cd4bd9-eebd-4d83-a684-634c23c28a7f",
 								"exec": [
+									"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#list-repositories-for-a-user */\r",
+									"\r",
 									"//Postman uses Chai Assertion library BDD style for readable tests\r",
 									"//pm is a javascript postman objectwhich provides access to request, response data and variables\r",
 									"\r",
@@ -902,7 +904,7 @@
 								"value": "2022-11-28"
 							}
 						],
-						"url": "https://api.github.com/users/doradlarajesh/repos"
+						"url": "https://api.github.com/users/{{user}}/repos"
 					},
 					"response": []
 				}
@@ -954,6 +956,10 @@
 		{
 			"key": "publicRepos",
 			"value": ""
+		},
+		{
+			"key": "user",
+			"value": "doradlarajesh"
 		}
 	]
 }
