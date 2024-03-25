@@ -753,8 +753,8 @@
 											"\r",
 											"pm.test(\"Response fields validation\",function(){\r",
 											"//Using Lodash Library for comparing two json objects\r",
-											"pm.expect(_.isEqual(pm.response.json().message)).to.equal(\"Not Found\")\r",
-											"pm.expect(_.isEqual(pm.response.json().documentation_url)).to.equal(\"https://docs.github.com/rest/repos/repos#delete-a-repository\")\r",
+											"pm.expect(pm.response.json().message).to.equal(\"Not Found\")\r",
+											"pm.expect(pm.response.json().documentation_url).to.equal(\"https://docs.github.com/rest/repos/repos#delete-a-repository\")\r",
 											"})"
 										],
 										"type": "text/javascript"
