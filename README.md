@@ -6,3 +6,4 @@ Mention about collection variables generated on the fly
 Monitor Capability
 Reports Integration
 Sample Report Snapshot
+Create some Data file and get the data from that file like CSV
