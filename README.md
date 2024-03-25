@@ -7,3 +7,6 @@ Monitor Capability
 Reports Integration
 Sample Report Snapshot
 Create some Data file and get the data from that file like CSV
+Running collection with Newman Integration
+Probably GITHUB Actions Integration
+Probably Docker Integration
