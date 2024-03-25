@@ -672,7 +672,8 @@
 											"//Test 02 - Compare expected and actual json Response\r",
 											"\r",
 											"pm.test(\"JSON Reponse Comparision\",function(){\r",
-											"\r",
+											"//Using Lodash Library for comparing two json objects\r",
+											"pm.expect(_.isEqual(pm.response.json(),expectedResponse)).to.equal(true)\r",
 											"})"
 										],
 										"type": "text/javascript"
@@ -726,6 +727,87 @@
 										{
 											"key": "repo",
 											"value": "{{newRepoName}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Repo that doesnt exist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8ab4d352-d710-4e6a-a97c-b7fab6ba9366",
+										"exec": [
+											"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#delete-a-repository */\r",
+											"\r",
+											"pm.test(\"Should return 404 not found\",function(){\r",
+											"    pm.response.to.have.status(404);\r",
+											"    pm.response.to.have.status(\"Not Found\")\r",
+											"})\r",
+											"\r",
+											"\r",
+											"//Test 02 - Validate Fields in Response JSON\r",
+											"\r",
+											"pm.test(\"Response fields validation\",function(){\r",
+											"//Using Lodash Library for comparing two json objects\r",
+											"pm.expect(_.isEqual(pm.response.json().message)).to.equal(\"Not Found\")\r",
+											"pm.expect(_.isEqual(pm.response.json().documentation_url)).to.equal(\"https://docs.github.com/rest/repos/repos#delete-a-repository\")\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "9ca99771-1c34-4399-b673-c1ca7f7d351d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{usertoken}}"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.github+json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <YOUR-TOKEN>"
+									},
+									{
+										"key": "X-GitHub-Api-Version",
+										"value": "2022-11-28"
+									}
+								],
+								"url": {
+									"raw": "https://api.github.com/repos/:user/:repo",
+									"protocol": "https",
+									"host": [
+										"api",
+										"github",
+										"com"
+									],
+									"path": [
+										"repos",
+										":user",
+										":repo"
+									],
+									"variable": [
+										{
+											"key": "user",
+											"value": "{{user}}"
+										},
+										{
+											"key": "repo",
+											"value": "sjdcshdbcshdbcRaj1234"
 										}
 									]
 								}
