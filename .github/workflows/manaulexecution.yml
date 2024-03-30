@@ -31,7 +31,7 @@ jobs:
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v3
         with: 
-          name: GitHubAPITestingReport_$(date +%Y%m&d%H%M%S)
+          name: echo "GitHubAPITestingReport_$(date +%Y%m&d%H%M%S)"
           path: GitHubAPITestResults
         
 
