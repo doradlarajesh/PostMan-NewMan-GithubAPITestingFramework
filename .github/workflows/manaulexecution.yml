@@ -1,0 +1,35 @@
+name: Run GitHUB API Postman NewMan Collection Action
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    name: Creating Ubuntu Runner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/latest
+          check-latest: true
+
+      - name: Install NewMan and HTMLextra reporter plugins
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+      - name: Create Test Results Folder
+        run: mkdir -p GitHubAPITestResults
+
+      - name: Run the collection with Newman and HTMLextra
+        run: |
+          newman run github_api_testing.json -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard"
+
+      - name: Upload generated HTML file to Github Action
+        uses: actions/upload-artifact@v3
+        
+
+  
