@@ -25,6 +25,7 @@ jobs:
         run: mkdir -p GitHubAPITestResults
 
       - name: Get Current TimeStamp
+        id: current_TimeStamp
         run: echo "current_TimeStamp=$(date +%Y%m&d%H%M%S)" >> $GITHUB_ENV
 
       - name: Run the collection with Newman and HTMLextra
