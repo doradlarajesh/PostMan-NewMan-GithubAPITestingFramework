@@ -26,7 +26,7 @@ jobs:
 
       - name: Run the collection with Newman and HTMLextra
         run: |
-          newman run "GitHubPostManAPITesting/Postman Collections/github_api_testing.json" -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html 
+          newman run "Postman Collections/github_api_testing.json" -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html 
 
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v3
