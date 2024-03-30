@@ -24,6 +24,9 @@ jobs:
       - name: Create Test Results Folder
         run: mkdir -p GitHubAPITestResults
 
+      - name: Get Current TimeStamp
+        run: echo "current_TimeStamp=$(date +%Y%m&d%H%M%S)" >> $GITHUB_ENV
+
       - name: Run the collection with Newman and HTMLextra
         run: |
           newman run "Postman Collections/github_api_testing.json" -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html 
@@ -31,7 +34,7 @@ jobs:
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v3
         with: 
-          name: echo "GitHubAPITestingReport_$(date +%Y%m&d%H%M%S)"
+          name: echo "GitHubAPITestingReport_${{env.current_TimeStamp}}"
           path: GitHubAPITestResults
         
 
