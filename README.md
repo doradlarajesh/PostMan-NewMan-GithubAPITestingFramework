@@ -24,8 +24,6 @@ Below types of assertions are done for above API's they include both positive an
 
 ![postman snapshot](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/760faeb8-bc65-4247-8d30-656fe3833449)
 
-
-
 ## Dependencies
 
 With GitHub actions already integrated we can run directly from actions tab. Dependencies are only required if this collection needs to be run locally.
@@ -35,6 +33,18 @@ With GitHub actions already integrated we can run directly from actions tab. Dep
  - Newman HTMLExtra
  - Newman Slack Reporter
  - Allure Report
+
+![githubactions1](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/65e08468-79b1-4b6b-9012-55d48ecd7d28)
+
+## Slack Report
+![slack report](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/84941545-e5cf-4dee-a613-027b23023c07)
+
+## HTML Report
+![Html report1](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/d839f458-ff17-45fc-aab0-702ca4289de9)
+![HTML Report2](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/13a47f6e-bbe2-421c-902c-73db01f88e21)
+
+
+
 
 
 
