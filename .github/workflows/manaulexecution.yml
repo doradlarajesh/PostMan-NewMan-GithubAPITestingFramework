@@ -21,6 +21,7 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
           npm install -g newman-reporter-slackreporter
+          npm install -g newman-reporter-allure
 
       - name: Create Test Results Folder
         run: mkdir -p GitHubAPITestResults
@@ -30,8 +31,10 @@ jobs:
         run: echo "current_TimeStamp=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
 
       - name: Run the collection with Newman and HTMLextra
+        env:
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL_RJD}}
         run: |
-          newman run "Postman Collections/github_api_testing.json" -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html 
+          newman run "Postman Collections/github_api_testing.json" -r htmlextra,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL 
 
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v3
