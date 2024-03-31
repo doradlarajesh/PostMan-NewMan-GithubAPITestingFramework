@@ -22,6 +22,9 @@ Below types of assertions are done for above API's they include both positive an
  - Validating Response Schema of Response.
  - Validating Response fields of Response based on different scenarios.
 
+![postman snapshot](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/760faeb8-bc65-4247-8d30-656fe3833449)
+
+
 
 ## Dependencies
 
@@ -32,6 +35,7 @@ With GitHub actions already integrated we can run directly from actions tab. Dep
  - Newman HTMLExtra
  - Newman Slack Reporter
  - Allure Report
+
 
 
 Intro: Saying what exactly we are testing!!!
