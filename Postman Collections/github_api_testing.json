@@ -794,8 +794,7 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer <YOUR-TOKEN>",
-										"disabled": true
+										"value": "Bearer <YOUR-TOKEN>"
 									},
 									{
 										"key": "X-GitHub-Api-Version",
