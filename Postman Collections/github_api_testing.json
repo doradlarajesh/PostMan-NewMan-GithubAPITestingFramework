@@ -1002,7 +1002,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "f0391c5b-c559-4bb2-9ee9-b2a143b54a77",
+				"id": "1dc5b359-fd0b-4fa8-a3e0-35f44b82c5a7",
 				"type": "text/javascript",
 				"exec": [
 					"pm.collectionVariables.set(\"user\",\"doradlarajesh\")"
@@ -1012,7 +1012,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1eef6772-1f15-45df-a404-eee4fa3232c5",
+				"id": "9d69b158-3443-4278-9a14-06e7b28c5c65",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1027,7 +1027,7 @@
 		},
 		{
 			"key": "usertoken",
-			"value": "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"
+			"value": "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"
 		},
 		{
 			"key": "variable_key",
