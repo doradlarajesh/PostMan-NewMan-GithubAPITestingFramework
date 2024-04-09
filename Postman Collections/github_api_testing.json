@@ -644,7 +644,7 @@
 							"response": []
 						},
 						{
-							"name": "Create a public Repo Copy",
+							"name": "Create a public Repo(Without Token))",
 							"event": [
 								{
 									"listen": "test",
@@ -708,7 +708,8 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer <YOUR-TOKEN>"
+										"value": "Bearer <YOUR-TOKEN>",
+										"disabled": true
 									},
 									{
 										"key": "X-GitHub-Api-Version",
