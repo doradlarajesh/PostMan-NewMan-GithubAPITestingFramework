@@ -34,7 +34,7 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL_RJD}}
         run: |
-          newman run "Postman Collections/github_api_testing.json" -r 'htmlextra,slackreporter' --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html --reporter-slackreporter-webhookurl https://hooks.slack.com/services/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 --verbose --disable-unicode 
+          newman run "Postman Collections/github_api_testing.json" -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html  --verbose --disable-unicode 
 
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v3
