@@ -642,177 +642,6 @@
 								"url": "https://api.github.com/user/repos"
 							},
 							"response": []
-						},
-						{
-							"name": "Create a public Repo(Without Token))",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "dbb85a64-6289-462f-b63a-815721ce7282",
-										"exec": [
-											"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user */\r",
-											"\r",
-											"const createRepoResponse = pm.response;\r",
-											"const jsonCreateRepoResponse = createRepoResponse.json();\r",
-											"const createRepoRequest = pm.request;\r",
-											"\r",
-											"//To delete the repo again afterwards re-saving this repo name into same variable as we created in pre-request script. As that has random function previously we get a different one if use same without below code\r",
-											"pm.collectionVariables.set(\"newRepoName\",JSON.parse(pm.request.body.raw).name)\r",
-											"console.log(\"In tests: \"+ pm.collectionVariables.get(\"newRepoName\"))\r",
-											"\r",
-											"pm.test(\"Repo created successfully\", function(){\r",
-											"    createRepoResponse.to.have.status(201)\r",
-											"    createRepoResponse.to.have.status(\"Created\")\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Validate Request and Response Repo name is same\",function(){\r",
-											"    console.log(jsonCreateRepoResponse.name)\r",
-											"    if(pm.collectionVariables.get(\"newRepoName\")!= jsonCreateRepoResponse.name ){\r",
-											"        pm.expect.fail;\r",
-											"    }\r",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "5a947ef4-ff8b-4993-9ece-55eac7ccb91f",
-										"exec": [
-											"//Javascript Faker library can be used to generate Fake Data\r",
-											"//Generate Fake Repo name\r",
-											"\r",
-											"pm.collectionVariables.set(\"newRepoName\",\"{{$randomLoremWord}}\")"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "ce1710da-0d75-4266-99dc-0ad565fa2a64",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/vnd.github+json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer <YOUR-TOKEN>",
-										"disabled": true
-									},
-									{
-										"key": "X-GitHub-Api-Version",
-										"value": "2022-11-28"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"{{newRepoName}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"private\": false,\r\n    \"is_template\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "https://api.github.com/user/repos"
-							},
-							"response": []
-						},
-						{
-							"name": "Create a public Repo(Wrong Token))",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "dbb85a64-6289-462f-b63a-815721ce7282",
-										"exec": [
-											"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user */\r",
-											"\r",
-											"const createRepoResponse = pm.response;\r",
-											"const jsonCreateRepoResponse = createRepoResponse.json();\r",
-											"const createRepoRequest = pm.request;\r",
-											"\r",
-											"//To delete the repo again afterwards re-saving this repo name into same variable as we created in pre-request script. As that has random function previously we get a different one if use same without below code\r",
-											"pm.collectionVariables.set(\"newRepoName\",JSON.parse(pm.request.body.raw).name)\r",
-											"console.log(\"In tests: \"+ pm.collectionVariables.get(\"newRepoName\"))\r",
-											"\r",
-											"pm.test(\"Repo created successfully\", function(){\r",
-											"    createRepoResponse.to.have.status(201)\r",
-											"    createRepoResponse.to.have.status(\"Created\")\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Validate Request and Response Repo name is same\",function(){\r",
-											"    console.log(jsonCreateRepoResponse.name)\r",
-											"    if(pm.collectionVariables.get(\"newRepoName\")!= jsonCreateRepoResponse.name ){\r",
-											"        pm.expect.fail;\r",
-											"    }\r",
-											"});"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "5a947ef4-ff8b-4993-9ece-55eac7ccb91f",
-										"exec": [
-											"//Javascript Faker library can be used to generate Fake Data\r",
-											"//Generate Fake Repo name\r",
-											"\r",
-											"pm.collectionVariables.set(\"newRepoName\",\"{{$randomLoremWord}}\")"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"id": "5d5b1faf-3e6d-459f-816e-f605ad2a0fc9",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/vnd.github+json"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer <YOUR-TOKEN>"
-									},
-									{
-										"key": "X-GitHub-Api-Version",
-										"value": "2022-11-28"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"{{newRepoName}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"private\": false,\r\n    \"is_template\": true\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": "https://api.github.com/user/repos"
-							},
-							"response": []
 						}
 					],
 					"id": "6b6dd4fe-5895-4be2-8cdd-2e187dfc3530"
@@ -982,6 +811,177 @@
 										}
 									]
 								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a public Repo(Without Token))",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dbb85a64-6289-462f-b63a-815721ce7282",
+										"exec": [
+											"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user */\r",
+											"\r",
+											"const createRepoResponse = pm.response;\r",
+											"const jsonCreateRepoResponse = createRepoResponse.json();\r",
+											"const createRepoRequest = pm.request;\r",
+											"\r",
+											"//To delete the repo again afterwards re-saving this repo name into same variable as we created in pre-request script. As that has random function previously we get a different one if use same without below code\r",
+											"pm.collectionVariables.set(\"newRepoName\",JSON.parse(pm.request.body.raw).name)\r",
+											"console.log(\"In tests: \"+ pm.collectionVariables.get(\"newRepoName\"))\r",
+											"\r",
+											"pm.test(\"Repo created successfully\", function(){\r",
+											"    createRepoResponse.to.have.status(201)\r",
+											"    createRepoResponse.to.have.status(\"Created\")\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Validate Request and Response Repo name is same\",function(){\r",
+											"    console.log(jsonCreateRepoResponse.name)\r",
+											"    if(pm.collectionVariables.get(\"newRepoName\")!= jsonCreateRepoResponse.name ){\r",
+											"        pm.expect.fail;\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5a947ef4-ff8b-4993-9ece-55eac7ccb91f",
+										"exec": [
+											"//Javascript Faker library can be used to generate Fake Data\r",
+											"//Generate Fake Repo name\r",
+											"\r",
+											"pm.collectionVariables.set(\"newRepoName\",\"{{$randomLoremWord}}\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "ce1710da-0d75-4266-99dc-0ad565fa2a64",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.github+json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <YOUR-TOKEN>",
+										"disabled": true
+									},
+									{
+										"key": "X-GitHub-Api-Version",
+										"value": "2022-11-28"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{newRepoName}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"private\": false,\r\n    \"is_template\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.github.com/user/repos"
+							},
+							"response": []
+						},
+						{
+							"name": "Create a public Repo(Wrong Token))",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "dbb85a64-6289-462f-b63a-815721ce7282",
+										"exec": [
+											"/* https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-for-the-authenticated-user */\r",
+											"\r",
+											"const createRepoResponse = pm.response;\r",
+											"const jsonCreateRepoResponse = createRepoResponse.json();\r",
+											"const createRepoRequest = pm.request;\r",
+											"\r",
+											"//To delete the repo again afterwards re-saving this repo name into same variable as we created in pre-request script. As that has random function previously we get a different one if use same without below code\r",
+											"pm.collectionVariables.set(\"newRepoName\",JSON.parse(pm.request.body.raw).name)\r",
+											"console.log(\"In tests: \"+ pm.collectionVariables.get(\"newRepoName\"))\r",
+											"\r",
+											"pm.test(\"Repo created successfully\", function(){\r",
+											"    createRepoResponse.to.have.status(201)\r",
+											"    createRepoResponse.to.have.status(\"Created\")\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Validate Request and Response Repo name is same\",function(){\r",
+											"    console.log(jsonCreateRepoResponse.name)\r",
+											"    if(pm.collectionVariables.get(\"newRepoName\")!= jsonCreateRepoResponse.name ){\r",
+											"        pm.expect.fail;\r",
+											"    }\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "5a947ef4-ff8b-4993-9ece-55eac7ccb91f",
+										"exec": [
+											"//Javascript Faker library can be used to generate Fake Data\r",
+											"//Generate Fake Repo name\r",
+											"\r",
+											"pm.collectionVariables.set(\"newRepoName\",\"{{$randomLoremWord}}\")"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"id": "5d5b1faf-3e6d-459f-816e-f605ad2a0fc9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.github+json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <YOUR-TOKEN>"
+									},
+									{
+										"key": "X-GitHub-Api-Version",
+										"value": "2022-11-28"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"{{newRepoName}}\",\r\n    \"description\": \"{{$randomLoremSentence}}\",\r\n    \"private\": false,\r\n    \"is_template\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.github.com/user/repos"
 							},
 							"response": []
 						}
