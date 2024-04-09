@@ -1002,7 +1002,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "1dc5b359-fd0b-4fa8-a3e0-35f44b82c5a7",
+				"id": "8c2e35a9-6510-4465-8f9b-2c3a17f18048",
 				"type": "text/javascript",
 				"exec": [
 					"pm.collectionVariables.set(\"user\",\"doradlarajesh\")"
@@ -1012,7 +1012,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "9d69b158-3443-4278-9a14-06e7b28c5c65",
+				"id": "ac0cbdc0-fd39-457b-950a-2f4ba8088586",
 				"type": "text/javascript",
 				"exec": [
 					""
