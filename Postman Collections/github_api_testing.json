@@ -650,6 +650,12 @@
 								"disableBodyPruning": true
 							},
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{usertoken}}"
+									}
+								},
 								"method": "POST",
 								"header": [
 									{
@@ -666,16 +672,50 @@
 									}
 								],
 								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"type": "text",
-											"key": "{\"summary\":\"A new important advisory\",\"description\":\"A more in-depth description of what the problem is.\",\"severity\":\"high\",\"cve_id\":null,\"vulnerabilities\":[{\"package\":{\"name\":\"a-package\",\"ecosystem\":\"npm\"},\"vulnerable_version_range\":\"< 1.0.0\",\"patched_versions\":\"1.0.0\",\"vulnerable_functions\":[\"important_function\"]}],\"cwe_ids\":[\"CWE-1101\",\"CWE-20\"],\"credits\":[{\"login\":\"monalisa\",\"type\":\"reporter\"},{\"login\":\"octocat\",\"type\":\"analyst\"}]}",
-											"value": ""
+									"mode": "raw",
+									"raw": "{\r\n    \"summary\": \"A new important advisory\",\r\n    \"description\": \"A more in-depth description of what the problem is.\",\r\n    \"severity\": \"high\",\r\n    \"cve_id\": null,\r\n    \"vulnerabilities\": [\r\n        {\r\n            \"package\": {\r\n                \"name\": \"rajmania\",\r\n                \"ecosystem\": \"npm\"\r\n            },\r\n            \"vulnerable_version_range\": \"< 1.0.0\",\r\n            \"patched_versions\": \"1.0.0\",\r\n            \"vulnerable_functions\": [\r\n                \"important_function\"\r\n            ]\r\n        }\r\n    ],\r\n    \"cwe_ids\": [\r\n        \"CWE-1101\",\r\n        \"CWE-20\"\r\n    ],\r\n    \"credits\": [\r\n        {\r\n            \"login\": \"monalisa\",\r\n            \"type\": \"reporter\"\r\n        },\r\n        {\r\n            \"login\": \"octocat\",\r\n            \"type\": \"analyst\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
-									]
+									}
 								},
-								"url": "https://api.github.com/repos/OWNER/REPO/security-advisories"
+								"url": "https://api.github.com/repos/doradlarajesh/est/security-advisories"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Security Advisory",
+							"id": "e8dd4fad-c878-44a7-a2d5-1b689dfc799f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.github+json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <YOUR-TOKEN>"
+									},
+									{
+										"key": "X-GitHub-Api-Version",
+										"value": "2022-11-28"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"severity\": \"low\",\r\n    \"state\": \"draft\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://api.github.com/repos/doradlarajesh/est/security-advisories/GHSA-698j-2fg5-5mx8"
 							},
 							"response": []
 						}
