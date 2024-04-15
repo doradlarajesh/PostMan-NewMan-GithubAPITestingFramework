@@ -642,6 +642,42 @@
 								"url": "https://api.github.com/user/repos"
 							},
 							"response": []
+						},
+						{
+							"name": "Create Security Advisories",
+							"id": "1bbceae1-243b-4dc2-8aa4-642b9197f5fd",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.github+json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer <YOUR-TOKEN>"
+									},
+									{
+										"key": "X-GitHub-Api-Version",
+										"value": "2022-11-28"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"type": "text",
+											"key": "{\"summary\":\"A new important advisory\",\"description\":\"A more in-depth description of what the problem is.\",\"severity\":\"high\",\"cve_id\":null,\"vulnerabilities\":[{\"package\":{\"name\":\"a-package\",\"ecosystem\":\"npm\"},\"vulnerable_version_range\":\"< 1.0.0\",\"patched_versions\":\"1.0.0\",\"vulnerable_functions\":[\"important_function\"]}],\"cwe_ids\":[\"CWE-1101\",\"CWE-20\"],\"credits\":[{\"login\":\"monalisa\",\"type\":\"reporter\"},{\"login\":\"octocat\",\"type\":\"analyst\"}]}",
+											"value": ""
+										}
+									]
+								},
+								"url": "https://api.github.com/repos/OWNER/REPO/security-advisories"
+							},
+							"response": []
 						}
 					],
 					"id": "6b6dd4fe-5895-4be2-8cdd-2e187dfc3530"
