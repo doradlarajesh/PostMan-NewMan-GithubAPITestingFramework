@@ -541,7 +541,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{userTokenKey}}"
+										"token": "{{gitUserToken}}"
 									}
 								},
 								"method": "GET",
@@ -616,7 +616,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{userTokenKey}}"
+										"token": "{{gitUserToken}}"
 									}
 								},
 								"method": "POST",
@@ -657,7 +657,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{userTokenKey}}"
+										"token": "{{gitUserToken}}"
 									}
 								},
 								"method": "POST",
@@ -769,7 +769,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{userTokenKey}}"
+										"token": "{{gitUserToken}}"
 									}
 								},
 								"method": "DELETE",
@@ -851,7 +851,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{userTokenKey}}"
+										"token": "{{gitUserToken}}"
 									}
 								},
 								"method": "DELETE",
