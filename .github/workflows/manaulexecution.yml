@@ -1,4 +1,4 @@
-name: Run GitHUB API Postman NewMan Collection Action
+name: Run GitHUB API Postman NewMan Collection Action with Slack Notification
 on:
   workflow_dispatch:
   
