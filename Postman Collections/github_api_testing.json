@@ -48,7 +48,7 @@
 											"});\r",
 											"\r",
 											"//Test3: Validating some header content is not present\r",
-											"pm.test(\"Transfer-Encoding1234 shouldnt present in response Headers\",function(){\r",
+											"pm.test(\"Transfer-Encoding1234 shouldnt present in Headers of response\",function(){\r",
 											"    reposResponse.to.not.have.header(\"Transfer-Encoding1234\")\r",
 											"\r",
 											"});\r",
@@ -516,7 +516,8 @@
 											"    pm.expect(jsonReposResponse.every(followsURLRule)).to.be.true\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -526,7 +527,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -539,7 +541,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{usertoken}}"
+										"token": "{{userTokenKey}}"
 									}
 								},
 								"method": "GET",
@@ -587,7 +589,8 @@
 											"    }\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -600,7 +603,8 @@
 											"\r",
 											"pm.collectionVariables.set(\"newRepoName\",\"{{$randomLoremWord}}\")"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -612,7 +616,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{usertoken}}"
+										"token": "{{userTokenKey}}"
 									}
 								},
 								"method": "POST",
@@ -653,7 +657,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{usertoken}}"
+										"token": "{{userTokenKey}}"
 									}
 								},
 								"method": "POST",
@@ -752,7 +756,8 @@
 											"pm.expect(_.isEqual(pm.response.json(),expectedResponse)).to.equal(true)\r",
 											"})"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -764,7 +769,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{usertoken}}"
+										"token": "{{userTokenKey}}"
 									}
 								},
 								"method": "DELETE",
@@ -833,7 +838,8 @@
 											"pm.expect(pm.response.json().documentation_url).to.equal(\"https://docs.github.com/rest/repos/repos#delete-a-repository\")\r",
 											"})"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -845,7 +851,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "{{usertoken}}"
+										"token": "{{userTokenKey}}"
 									}
 								},
 								"method": "DELETE",
@@ -907,7 +913,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8c2e35a9-6510-4465-8f9b-2c3a17f18048",
+				"id": "f836f777-1fcf-42cf-bec1-46d69bbf0ca4",
 				"type": "text/javascript",
 				"exec": [
 					"pm.collectionVariables.set(\"user\",\"doradlarajesh\")"
@@ -917,7 +923,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ac0cbdc0-fd39-457b-950a-2f4ba8088586",
+				"id": "3b1b85b9-6d44-4553-9ade-477e09d1a241",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -929,10 +935,6 @@
 		{
 			"key": "GitUserName",
 			"value": "doradlarajesh"
-		},
-		{
-			"key": "usertoken",
-			"value": "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"
 		},
 		{
 			"key": "variable_key",
