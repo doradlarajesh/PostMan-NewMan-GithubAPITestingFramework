@@ -36,6 +36,11 @@ jobs:
         run: |
           newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html --insecure --suppress-exit-code  
  
+      - name: Upload generated HTML file to Github Action
+        uses: actions/upload-artifact@v3
+        with: 
+          name: GitHubAPITestingReport_${{env.current_TimeStamp}}
+          path: GitHubAPITestResults
 
         
 
