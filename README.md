@@ -43,7 +43,8 @@ With GitHub actions already integrated we can run directly from actions tab. Dep
 ![Html report1](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/d839f458-ff17-45fc-aab0-702ca4289de9)
 ![HTML Report2](https://github.com/doradlarajesh/GitHubPostManAPITesting/assets/57953464/13a47f6e-bbe2-421c-902c-73db01f88e21)
 
-
+## Allure Report
+![Screenshot 2024-06-15 154638](https://github.com/doradlarajesh/PostMan-NewMan-GithubAPITestingFramework/assets/57953464/d0df7de9-aa31-4f9e-b6b0-a9e6aed4bf8a)
 
 
 
