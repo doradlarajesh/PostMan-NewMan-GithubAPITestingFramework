@@ -33,7 +33,7 @@ jobs:
         env:
           GIT_TOKEN: ${{secrets.TOKEN_ACCESS}}
         run: |
-          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-allure-export GitHubAPITestResults/allure-postman-resultsDir --suppress-exit-code  
+          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code  
  
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v4
