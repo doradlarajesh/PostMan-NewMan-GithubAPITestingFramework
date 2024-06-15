@@ -1,4 +1,4 @@
-name: Run GitHUB API Postman NewMan Collection Action with Slack Notification
+name: Run Tests with Slack and HTML Report
 on:
   workflow_dispatch:
   
