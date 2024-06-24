@@ -33,7 +33,7 @@ jobs:
         env:
           GIT_TOKEN: ${{secrets.TOKEN_ACCESS}}
         run: |
-          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code  
+          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code  
  
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -41,7 +41,7 @@ jobs:
       - name: Upload HTML Report in GitHub Page
         uses: actions/upload-pages-artifact@v3
         with: 
-          path: GitHubAPITestResults/postman-newman-report.html
+          path:  GitHubAPITestResults/HTMLExtra
           
       - name: Deploy GitHub Page
         id: deployment
