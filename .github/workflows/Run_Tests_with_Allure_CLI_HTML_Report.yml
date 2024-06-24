@@ -1,6 +1,11 @@
 name: Run Tests with Allure,CLI, HTML Reports
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
   
 jobs:
   build:
