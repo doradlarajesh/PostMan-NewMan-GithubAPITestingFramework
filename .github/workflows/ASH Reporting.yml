@@ -1,0 +1,64 @@
+name: Allure,CLI, HTML and Slack Reporting
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
+jobs:
+  build:
+    name: API Test Runner
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          check-latest: true
+
+      - name: Install NewMan and HTMLextra reporter plugins
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+          npm install -g newman-reporter-slackreporter
+          npm install -g newman-reporter-allure
+
+      - name: Create Test Results Folder
+        run: mkdir -p GitHubAPITestResults
+
+      - name: Get Current TimeStamp
+        id: current_TimeStamp
+        run: echo "current_TimeStamp=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
+
+      - name: Run the collection with Newman and HTMLextra
+        env:
+          SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL_RJD}}
+          GIT_TOKEN: ${{secrets.TOKEN_ACCESS}}
+        run: |
+          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code  
+ 
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Upload HTML Report in GitHub Page
+        uses: actions/upload-pages-artifact@v3
+        with: 
+          path: GitHubAPITestResults/HTMLExtra
+          
+      - name: Deploy GitHub Page
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
+      - name: Upload generated HTML file to Github Action
+        uses: actions/upload-artifact@v4
+        with: 
+          name: GitHubAPITestingReport_${{env.current_TimeStamp}}
+          path: GitHubAPITestResults
