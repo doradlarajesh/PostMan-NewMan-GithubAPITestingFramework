@@ -16,6 +16,7 @@ jobs:
       url: ${{steps.deployment.outputs.page_url}}
     runs-on: ubuntu-latest
     steps:
+#Checking out the repository so that workflow can access it
       - name: Checkout Repository
         uses: actions/checkout@v4
 # Installing latest stable version of Node JS 
@@ -34,7 +35,7 @@ jobs:
 # Creating a test results folder to upload all the artifacts generated from HTML Extra and Allure Reporting.
       - name: Create Test Results Folder
         run: mkdir -p GitHubAPITestResults
-
+# To append current time stamp to test results folder that will be available after workflow run
       - name: Get Current TimeStamp
         id: current_TimeStamp
         run: echo "current_TimeStamp=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
@@ -46,19 +47,19 @@ jobs:
           GIT_TOKEN: ${{secrets.TOKEN_ACCESS}}
         run: |
           newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code  
- # Providing GitToken and SlackWebhook from repo secrets, As my tests need GitHub token to test GithUb APi's and for sending results to slack.
+ # For enabling pages functionality 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
-        
+ # For uploading the HTML page to view in Github pages. Here I am uploading only HTML Extra generated HTML file intentionally
       - name: Upload HTML Report in GitHub Page
         uses: actions/upload-pages-artifact@v3
         with: 
           path: GitHubAPITestResults/HTMLExtra
-          
+ # For deploying the above uploaded artifact to GitHub pages
       - name: Deploy GitHub Page
         id: deployment
         uses: actions/deploy-pages@v4
-        
+ # Uploading all the artifacts including ALlure and HTML Extra with folder name having current date time stamp to distingush my results.      
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v4
         with: 
