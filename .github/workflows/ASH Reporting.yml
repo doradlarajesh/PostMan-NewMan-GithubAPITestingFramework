@@ -1,5 +1,5 @@
 name: Allure,CLI, HTML and Slack Reporting
-# Manually Triggering the workflow
+# Allows you to Manually Triggering the workflow from Actions Tab
 on:
   workflow_dispatch:
 # Giving necessar permission to token such that this workflow can upload and deploy HTML content to pages
@@ -38,14 +38,15 @@ jobs:
       - name: Get Current TimeStamp
         id: current_TimeStamp
         run: echo "current_TimeStamp=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
-# Running my collection with environment file as my collection uses some environmental variables
+# Running my collection with environment file as my collection uses some environmental variables with Newman CLI along with reporter tools which we installed in previous steps
+# Providing GitToken and SlackWebhook from repo secrets, As my tests need GitHub token to test GithUb APi's and for sending results to slack.
       - name: Run the collection with Newman and HTMLextra
         env:
           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL_RJD}}
           GIT_TOKEN: ${{secrets.TOKEN_ACCESS}}
         run: |
           newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code  
- 
+ # Providing GitToken and SlackWebhook from repo secrets, As my tests need GitHub token to test GithUb APi's and for sending results to slack.
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
         
