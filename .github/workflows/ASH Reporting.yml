@@ -1,7 +1,8 @@
 name: Allure,CLI, HTML and Slack Reporting
+# Manually Triggering the workflow
 on:
   workflow_dispatch:
-
+# Giving necessar permission to token such that this workflow can upload and deploy HTML content to pages
 permissions:
   contents: read
   pages: write
@@ -17,27 +18,27 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
+# Installing latest stable version of Node JS 
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
           check-latest: true
-
+# Installing all the required npm packages required for running postman tests, HTML and Slack Reporting
       - name: Install NewMan and HTMLextra reporter plugins
         run: |
           npm install -g newman
           npm install -g newman-reporter-htmlextra
           npm install -g newman-reporter-slackreporter
           npm install -g newman-reporter-allure
-
+# Creating a test results folder to upload all the artifacts generated from HTML Extra and Allure Reporting.
       - name: Create Test Results Folder
         run: mkdir -p GitHubAPITestResults
 
       - name: Get Current TimeStamp
         id: current_TimeStamp
         run: echo "current_TimeStamp=$(date +%Y%m%d%H%M%S)" >> $GITHUB_ENV
-
+# Running my collection with environment file as my collection uses some environmental variables
       - name: Run the collection with Newman and HTMLextra
         env:
           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL_RJD}}
