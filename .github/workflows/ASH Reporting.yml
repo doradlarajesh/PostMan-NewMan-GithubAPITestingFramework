@@ -59,7 +59,7 @@ jobs:
       - name: Deploy GitHub Page
         id: deployment
         uses: actions/deploy-pages@v4
- # Uploading all the artifacts including ALlure and HTML Extra with folder name having current date time stamp to distingush my results.      
+ # Uploading all the artifacts including Allure and HTML Extra with folder name having current date time stamp to distingush my results.      
       - name: Upload generated HTML file to Github Action
         uses: actions/upload-artifact@v4
         with: 
