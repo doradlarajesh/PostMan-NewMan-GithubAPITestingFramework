@@ -46,8 +46,11 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{secrets.SLACK_WEBHOOK_URL_RJD}}
           GIT_TOKEN: ${{secrets.TOKEN_ACCESS}}
-        run: |
-          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json" -r htmlextra,cli,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code 
+        run: >
+          newman run "Postman Collections/github_api_testing.json" --env-var "gitUserToken=$GIT_TOKEN" --environment "Postman Collections/GitTest.postman_environment.json"
+          -r htmlextra,cli,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" 
+          --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" 
+          --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code 
           npx allure generate --single-file allure-postman --output GitHubAPITestResults/allure-postman/allure-report --clean
  # For enabling pages functionality 
       - name: Setup GitHub Pages
