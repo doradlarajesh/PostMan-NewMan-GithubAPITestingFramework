@@ -51,6 +51,7 @@ jobs:
           -r htmlextra,cli,slackreporter,allure --reporter-htmlextra-browserTitle "GitHub API Report" --reporter-htmlextra-title "GITHUB API Testing DashBoard" 
           --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" 
           --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code 
+          
           npx allure generate --single-file allure-postman --output GitHubAPITestResults/allure-postman/allure-report --clean
  # For enabling pages functionality 
       - name: Setup GitHub Pages
