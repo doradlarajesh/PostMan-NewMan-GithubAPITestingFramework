@@ -35,7 +35,9 @@ jobs:
           npm install -g allure-commandline --save-dev
 # Creating a test results folder to upload all the artifacts generated from HTML Extra and Allure Reporting.
       - name: Create Test Results Folder
-        run: mkdir -p GitHubAPITestResults
+        run: |
+          mkdir -p GitHubAPITestResults
+          mkdir -p GitHubAPITestResults/allure-postman
 # To append current time stamp to test results folder that will be available after workflow run
       - name: Get Current TimeStamp
         id: current_TimeStamp
