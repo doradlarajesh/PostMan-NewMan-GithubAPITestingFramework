@@ -54,7 +54,7 @@ jobs:
           --reporter-htmlextra-export GitHubAPITestResults/HTMLExtra/postman-newman-report.html --reporter-htmlextra-skipHeaders "Authorization" 
           --reporter-slackreporter-webhookurl $SLACK_WEBHOOK_URL --reporter-allure-resultsDir GitHubAPITestResults/allure-postman --suppress-exit-code 
           
-          npx allure generate --single-file allure-postman --output GitHubAPITestResults/allure-postman --clean
+          npx allure generate --single-file allure-postman --output GitHubAPITestResults/allure-postman/allure-single --clean
  # For enabling pages functionality 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
@@ -68,7 +68,7 @@ jobs:
       - name: Upload Allure Report in GitHub Page
         uses: actions/upload-pages-artifact@v3
         with: 
-          path: GitHubAPITestResults/allure-postman
+          path: GitHubAPITestResults/allure-postman/allure-single
 
  # For deploying the above uploaded artifact to GitHub pages
       - name: Deploy GitHub Page
