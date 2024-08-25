@@ -64,7 +64,7 @@ jobs:
         #with: 
           #path: GitHubAPITestResults/HTMLExtra
  # Here I am uploading only Allure Report, you can choose any one either HTML Extra or Allure report
- # Just for demosntration purpose of how to generate single file HTML Allure report and uploading it to Pages I am doing this in case if it will be useful for audience
+ # Just for demonstration purpose of how to generate single file HTML Allure report and uploading it to Pages I am doing this in case if it will be useful for audience
       - name: Upload Allure Report in GitHub Page
         uses: actions/upload-pages-artifact@v3
         with: 
